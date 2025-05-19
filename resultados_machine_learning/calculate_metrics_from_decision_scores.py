@@ -9,7 +9,7 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, roc_auc_score, f1_score, recall_score, precision_score, confusion_matrix
 
 # Cargar el dataframe desde un archivo de Excel
-df = pd.read_excel("C:/Franco/Doctorado/Laboratorio/42_tea_tomi_chu/resultados_machine_learning/IG_Analisis1_decision_scores.xlsx")
+df = pd.read_excel("C:/Franco/Doctorado/Laboratorio/42_tea_tomi_chu/resultados_machine_learning/IG_Analisis2_shuffle_decision_scores.xlsx")
 
 # Umbrales típicos para cada modelo en sklearn
 thresholds = {
@@ -103,4 +103,4 @@ def calculate_metrics(df, thresholds):
 # Ejemplo de uso
 summary_df = calculate_metrics(df, thresholds)
 print(summary_df)
-summary_df.to_excel("C:/Franco/Doctorado/Laboratorio/42_tea_tomi_chu/resultados_machine_learning/IG_Analisis1_decision_scores_from_scores.xlsx",index=False)
+summary_df.to_excel("C:/Franco/Doctorado/Laboratorio/42_tea_tomi_chu/resultados_machine_learning/IG_Analisis2_shuffle_decision_scores_from_scores.xlsx",index=False)

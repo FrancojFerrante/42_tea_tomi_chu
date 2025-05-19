@@ -165,7 +165,7 @@ for xlsx_file in xlsx_files:
             
             # Contar la cantidad de combinaciones
             # n_tarea_feature = len(combinations)
-            n_tarea_feature = 5
+            n_tarea_feature = 30
             # grafico_barras_horizontales(df,col_group=["tarea"],x_label="Feature importance",y_label="Task",title=file_path.split("\\")[-1].split(".")[0],\
             #                             path=file_path.split("\\")[0] + "//colapsada//" + file_path.split("\\")[-1].split(".")[0] + "_task", top_n=n_tarea)
             # grafico_barras_horizontales(df,col_group=["feature"],x_label="Feature importance",y_label="Feature",title=file_path.split("\\")[-1].split(".")[0],\

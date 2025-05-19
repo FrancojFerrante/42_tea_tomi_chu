@@ -63,26 +63,28 @@ elim_cols = ['%_Reformulaciones', 'talking_intervals__speechrate']
 def get_columns(prefix, base_cols, extras=[], exclude=[]):
     return [f"{prefix}_{col}" for col in base_cols + extras if col not in exclude]
 
+data_dcl[group_column] = np.random.permutation(data_dcl[group_column].values)
+
 # Crear los DataFrames para cada análisis
 dict_dfs = {
     # Análisis individuales
-    "IG_Analisis1": data_dcl[get_columns("IG", analisis1) + [group_column, id_column]],
-    "IR_Analisis1": data_dcl[get_columns("IR", analisis1) + [group_column, id_column]],
+    # "IG_Analisis1": data_dcl[get_columns("IG", analisis1) + [group_column, id_column]],
+    # "IR_Analisis1": data_dcl[get_columns("IR", analisis1) + [group_column, id_column]],
 
-    "IG_Analisis2": data_dcl[get_columns("IG", analisis1, exclude=elim_cols) + [group_column, id_column]],
-    "IR_Analisis2": data_dcl[get_columns("IR", analisis1, exclude=elim_cols) + [group_column, id_column]],
+    "IG_Analisis2_shuffle": data_dcl[get_columns("IG", analisis1, exclude=elim_cols) + [group_column, id_column]],
+    "IR_Analisis2_shuffle": data_dcl[get_columns("IR", analisis1, exclude=elim_cols) + [group_column, id_column]],
 
-    "IG_Analisis3": data_dcl[get_columns("IG", analisis1, extras=extra_cols) + [group_column, id_column]],
-    "IR_Analisis3": data_dcl[get_columns("IR", analisis1, extras=extra_cols) + [group_column, id_column]],
+    # "IG_Analisis3": data_dcl[get_columns("IG", analisis1, extras=extra_cols) + [group_column, id_column]],
+    # "IR_Analisis3": data_dcl[get_columns("IR", analisis1, extras=extra_cols) + [group_column, id_column]],
 
-    "IG_Analisis4": data_dcl[get_columns("IG", analisis1, extras=extra_cols, exclude=elim_cols) + [group_column, id_column]],
-    "IR_Analisis4": data_dcl[get_columns("IR", analisis1, extras=extra_cols, exclude=elim_cols) + [group_column, id_column]],
+    # "IG_Analisis4": data_dcl[get_columns("IG", analisis1, extras=extra_cols, exclude=elim_cols) + [group_column, id_column]],
+    # "IR_Analisis4": data_dcl[get_columns("IR", analisis1, extras=extra_cols, exclude=elim_cols) + [group_column, id_column]],
 
     # Análisis conjuntos IR_IG
-    "IR_IG_Analisis1": data_dcl[get_columns("IR", analisis1) + get_columns("IG", analisis1) + [group_column, id_column]],
-    "IR_IG_Analisis2": data_dcl[get_columns("IR", analisis1, exclude=elim_cols) + get_columns("IG", analisis1, exclude=elim_cols) + [group_column, id_column]],
-    "IR_IG_Analisis3": data_dcl[get_columns("IR", analisis1, extras=extra_cols) + get_columns("IG", analisis1, extras=extra_cols) + [group_column, id_column]],
-    "IR_IG_Analisis4": data_dcl[get_columns("IR", analisis1, extras=extra_cols, exclude=elim_cols) + get_columns("IG", analisis1, extras=extra_cols, exclude=elim_cols) + [group_column, id_column]],
+    # "IR_IG_Analisis1": data_dcl[get_columns("IR", analisis1) + get_columns("IG", analisis1) + [group_column, id_column]],
+    "IR_IG_Analisis2_shuffle": data_dcl[get_columns("IR", analisis1, exclude=elim_cols) + get_columns("IG", analisis1, exclude=elim_cols) + [group_column, id_column]],
+    # "IR_IG_Analisis3": data_dcl[get_columns("IR", analisis1, extras=extra_cols) + get_columns("IG", analisis1, extras=extra_cols) + [group_column, id_column]],
+    # "IR_IG_Analisis4": data_dcl[get_columns("IR", analisis1, extras=extra_cols, exclude=elim_cols) + get_columns("IG", analisis1, extras=extra_cols, exclude=elim_cols) + [group_column, id_column]],
 
 }
 
